@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leaderboard"
+description = "Leaderboard in Python and redis."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "GNU General Public License v3 (GPLv3)" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+dynamic = ["version", "dependencies"]
+
+[project.urls]
+"Homepage" = "https://github.com/BorjaEst/leaderboard/"
+"Bug Tracker" = "https://github.com/BorjaEst/leaderboard/issues"
+
+[tool.setuptools.dynamic]
+version = { file = "src/leaderboard/VERSION" }
+dependencies = { file = ["requirements.txt"] }
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+env = [ ]
+
+[tool.pylint.messages_control]
+good-names = ["id", "n", "db", "tx"]
