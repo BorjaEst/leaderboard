@@ -12,6 +12,7 @@
             "args": [
                 "app.main:app"
             ],
+            "envFile": "${workspaceFolder}/.env",
             "jinja": true,
             "justMyCode": true,
             "env": {
