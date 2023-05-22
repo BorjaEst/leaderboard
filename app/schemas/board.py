@@ -7,31 +7,31 @@ from app.typing import Order
 
 
 # Shared properties
-class PoolBase(BaseModel):
+class BoardBase(BaseModel):
     pass
 
 
-# Properties to receive on pool creation
-class PoolCreate(PoolBase):
+# Properties to receive on board creation
+class BoardCreate(BoardBase):
     order: Order
 
 
-# Properties to receive on pool update
-class PoolUpdate(PoolBase):
+# Properties to receive on board update
+class BoardUpdate(BoardBase):
     pass
 
 
 # Properties shared by models stored in DB
-class PoolInDBBase(PoolBase):
+class BoardInDBBase(BoardBase):
     id: UUID
     order: Order
 
 
 # Properties to return to client
-class Pool(PoolInDBBase):
+class Board(BoardInDBBase):
     pass
 
 
 # Properties properties stored in DB
-class PoolInDB(PoolInDBBase):
+class BoardInDB(BoardInDBBase):
     pass

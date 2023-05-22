@@ -1,4 +1,4 @@
-from pydantic import BaseModel, BaseSettings, RedisDsn
+from pydantic import BaseModel, BaseSettings, AnyUrl, PositiveInt
 
 from app.typing import Order
 
@@ -8,11 +8,15 @@ class Application(BaseModel):
 
 
 class Defaults(BaseModel):
-    pool_order: Order = 'ascendant'
+    redis_host: AnyUrl = 'localhost'
+    redis_port: PositiveInt = 6379
+    redis_db: PositiveInt = 0
+    page_size: PositiveInt = 25
+    order: Order = 'ascendant'
+    pools: dict = {}
 
 
 class Settings(BaseSettings):
-    redis_om_url: RedisDsn = 'redis://@localhost:6379/1'
     v1_str: str = '/api/v1'
     app: Application = Application()
     default: Defaults = Defaults()
